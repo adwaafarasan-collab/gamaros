@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://combatarena"]
+
+[ext_resource type="Script" path="res://Scenes/Combat/CombatArena.gd"]
+[ext_resource type="Script" path="res://Scripts/Hero/CombatHero.gd"]
+[ext_resource type="Script" path="res://Scripts/AI/NPCEnemy.gd"]
+
+[node name="CombatArena" type="Node3D"]
+script = ExtResource("res://Scenes/Combat/CombatArena.gd")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="Hero" type="CharacterBody3D" parent="."]
+position = Vector3(-5, 0, 0)
+script = ExtResource("res://Scripts/Hero/CombatHero.gd")
+max_health = 100
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hero"]
+shape = CapsuleShape3D.new()
+
+[node name="Label3D" type="Label3D" parent="Hero"]
+text = "You (Hero) 🦸"
+position = Vector3(0, 3, 0)
+
+[node name="Enemy" type="Node3D" parent="."]
+position = Vector3(5, 0, 0)
+script = ExtResource("res://Scripts/AI/NPCEnemy.gd")
+npc_name = "Dark Knight"
+enemy_health = 80
+max_health = 80
+ai_type = 2
+
+[node name="Label3D" type="Label3D" parent="Enemy"]
+text = "Enemy - Dark Knight ⚔️"
+position = Vector3(0, 3, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = PlaneMesh.new()
+scale = Vector3(20, 1, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = BoxShape3D.new()
+scale = Vector3(20, 1, 10)
