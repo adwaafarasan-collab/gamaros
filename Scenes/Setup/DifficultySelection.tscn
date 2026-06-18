@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://d987654321cd"]
+
+[ext_resource type="Script" path="res://Scripts/Setup/DifficultySelectionController.gd"]
+
+[node name="DifficultySelection" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = SubResource("GDScript_DifficultySelectionController")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.117647, 0.152941, 0.188235, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -250.0
+offset_right = 200.0
+offset_bottom = 250.0
+alignment = 1
+
+[node name="Title" type="Label" parent="CanvasLayer/VBoxContainer"]
+text = "اختر مستوى الصعوبة ⚔️"
+text_overrun_behavior = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/MarginContainer"]
+spacing = 10
+
+[node name="EasyButton" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/VBoxContainer2"]
+text = "سهل 😊"
+min_size = Vector2i(300, 60)
+
+[node name="NormalButton" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/VBoxContainer2"]
+text = "عادي 🎮"
+min_size = Vector2i(300, 60)
+
+[node name="HardButton" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/VBoxContainer2"]
+text = "صعب 💪"
+min_size = Vector2i(300, 60)
+
+[node name="NightmareButton" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/VBoxContainer2"]
+text = "حلم مرعب 👹"
+min_size = Vector2i(300, 60)
+
+[node name="BackButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+text = "رجوع"

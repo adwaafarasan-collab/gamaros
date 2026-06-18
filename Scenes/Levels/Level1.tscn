@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://level1template"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Level1.gd"]
+
+[node name="Level1" type="Node3D"]
+script = ExtResource("res://Scenes/Levels/Level1.gd")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="Hero" type="CharacterBody3D" parent="."]
+position = Vector3(0, 0, 0)
+script = ExtResource("res://Scripts/Hero/Hero.gd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hero"]
+shape = CapsuleShape3D.new()
+
+[node name="NPCGuide" type="Node3D" parent="."]
+position = Vector3(5, 0, 5)
+script = ExtResource("res://Scripts/AI/NPCBase.gd")
+
+[node name="Label3D" type="Label3D" parent="NPCGuide"]
+text = "دليل اللعبة 🧙"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = PlaneMesh.new()
+scale = Vector3(100, 1, 100)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = BoxShape3D.new()
+scale = Vector3(100, 1, 100)
