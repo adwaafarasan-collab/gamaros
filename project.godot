@@ -1,0 +1,29 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   option = value ; assignment goes here. No kind of quoting is required. Everything after # is ignored.
+;   section/subsection = value
+
+config_version=5
+
+[application]
+config/name="GAMAROS"
+config/description="Play and interact, you are inside the game, you are the hero"
+run/main_scene="res://Scenes/Menu/MainMenu.tscn"
+config/features=PackedStringArray("4.0", "Forward Plus")
+config/icon="res://Assets/UI/icon.svg"
+
+[autoload]
+GameManager="*res://Scripts/GameManager.gd"
+VoiceManager="*res://Scripts/Voice/VoiceManager.gd"
+LocalizationManager="*res://Scripts/Localization/LocalizationManager.gd"
+
+[internationalization]
+locale/translations=PackedStringArray("res://Localization/translations.en.translation", "res://Localization/translations.ar.translation")
+locale/translation_remaps={}
+
+[rendering]
+renderer/rendering_method="forward_plus"
